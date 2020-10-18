@@ -1,13 +1,10 @@
-package com.purdue.helloworld;
+package com.purdue.helloworld.ui.main;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,11 +19,12 @@ import java.time.DayOfWeek;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.purdue.helloworld.MealSwipe;
 import com.purdue.helloworld.R;
 import com.purdue.helloworld.Restaurant;
-import com.purdue.helloworld.ui.main.PlaceholderFragment;
+import com.purdue.helloworld.RestaurantInfo;
+import com.purdue.helloworld.Utility;
 
-import java.time.format.TextStyle;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -93,18 +91,19 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.My
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            /*    SharedPreferences mySharedPreferences = context.getSharedPreferences("WeekRef", Context.MODE_PRIVATE);
+                // SharedPreferences mySharedPreferences = context.getSharedPreferences("WeekRef", Context.MODE_PRIVATE);
 
-                SharedPreferences.Editor editor = mySharedPreferences.edit();
-                editor.putString("WeekRef", weekReference).commit();
-                */
+                // SharedPreferences.Editor editor = mySharedPreferences.edit();
+                // editor.putString("WeekRefer", data.getTime()).commit();
 
-               // Bundle bundle = new Bundle();
-               // bundle.putString("time", data.getTime());
-               // bundle.putString("menu", data.getMenu());
-                PlaceholderFragment fragment = new PlaceholderFragment();
-              //  fragment.setArguments(bundle);
-                Intent intent = new Intent(context,RestaurantInfo.class);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("time", data.getTime());
+                bundle.putString("menu", data.getMenu());
+                Fragment fragment = new PlaceholderFragment();
+                fragment.setArguments(bundle);
+
+                Intent intent = new Intent(context, RestaurantInfo.class);
                 context.startActivity(intent);
 
 

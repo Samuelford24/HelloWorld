@@ -10,9 +10,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.purdue.helloworld.R;
-import com.purdue.helloworld.Restaurant;
-import com.purdue.helloworld.RestaurantAdapter;
+import com.purdue.helloworld.ui.main.RestaurantAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -14,6 +14,8 @@ import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.appcompat.view.menu.MenuAdapter;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -28,6 +30,9 @@ import com.purdue.helloworld.Utility;
  * A placeholder fragment containing a simple view.
  */
 public class PlaceholderFragment extends Fragment {
+    static String timeNow = "-";
+    static String menuNow = "-";
+
 RecyclerView recyclerView;
     private static final String ARG_SECTION_NUMBER = "section_number";
     @Override
@@ -37,25 +42,25 @@ RecyclerView recyclerView;
 
         View root = inflater.inflate(R.layout.fragment_main, container, false);
         recyclerView = root.findViewById(R.id.rvHours);
-       // Bundle bundle = this.getArguments();
-        String time = null;
-
-           // time = getArguments().getString("time", null);
-            /*
-        SharedPreferences mySharedPreferences = getContext().getSharedPreferences("WeekRef", Context.MODE_PRIVATE);
 
 
+        Bundle bundle2 = this.getArguments();
+        // System.out.println(bundle2);
 
-        String wr = mySharedPreferences.getString("WeekRef", "");
+        // System.out.println(bundle2.getString("time"));
 
-             */
-       // String menu = bundle.getString("menu");
-        HoursAdapter hoursAdapter = new HoursAdapter(Utility.parseString(time));
+        if (bundle2 != null) {
+            String time = bundle2.getString("time");
+            String menu = bundle2.getString("menu");
+        }
+
+        HoursAdapter hoursAdapter = new HoursAdapter(Utility.parseString(timeNow));
         hoursAdapter.notifyDataSetChanged();
         RecyclerView.LayoutManager layoutmanager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutmanager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(hoursAdapter);
+
 
         return root;
     }

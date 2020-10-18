@@ -1,45 +1,32 @@
 package com.purdue.helloworld.ui.home;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.FirestoreRegistrar;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.purdue.helloworld.MealSwipe;
-import com.purdue.helloworld.MealSwipeTime;
 import com.purdue.helloworld.R;
 import com.purdue.helloworld.Restaurant;
-import com.purdue.helloworld.RestaurantAdapter;
+import com.purdue.helloworld.ui.main.RestaurantAdapter;
 import com.purdue.helloworld.Utility;
 
-import java.lang.ref.Reference;
-import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
 
 public class HomeFragment extends Fragment {
     RecyclerView recyclerView;
